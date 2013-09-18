@@ -1,7 +1,7 @@
 pico_download
 =============
 
-Force files to download in [PicoCMS](pico.dev7studios.com).
+Force files to download in [PicoCMS](http://pico.dev7studios.com).
 
 ### Usage
 
