@@ -16,10 +16,21 @@ class Pico_Download {
     private $download_folder = 'content/download/';
 
     public function config_loaded(&$settings) {
-        if (isset($settings['download_url']))
+        $lastchar = '';
+        if (isset($settings['download_url'])) {
+            $lastchar = substr($settings['download_url'], -1);
+            if ($lastchar === '/') {
+                $settings['download_url'] = substr($settings['download_url'], 0, -1);
+            }
             $this->download_url = $settings['download_url'];
-        if (isset($settings['download_folder']))
+        }
+        if (isset($settings['download_folder'])) {
+            $lastchar = substr($settings['download_folder'], -1);
+            if ($lastchar !== '/') {
+                $settings['download_folder'] = $settings['download_folder'].'/';
+            }
             $this->download_folder = $settings['download_folder'];
+        }
     }
 
     public function request_url(&$url)
