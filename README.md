@@ -1,27 +1,31 @@
-pico_download
-=============
+# pico_download
 
 Force files to download in [PicoCMS](http://pico.dev7studios.com).
 
+### Configuration
+
+The download folder and url can be customized via `config.php`:
+
+```php
+$config['download_url'] = 'dl'; // default: download
+$config['download_folder'] = 'content/dl/'; // default: content/download/
+```
+
+You can access it with `{{ download_url }}`.
+
 ### Usage
 
-Place your files in the content folder. Then replace the word `content/` in the url with the word `download/`.
-
-*The download folder can be controlled in the plugin file. Default for downloading is `content/`.*
+Place your files in the `content/download/` folder. Then download them using `http://example.com/download/filename`.
 
 ### Example
 
-If you wanted to render the file in the browser:
+Let's say you want to download `test.txt`. In your template you'd link to it like this:
 
-    http://localhost:8888/Pico/content/sub/page.md
+```
+<a href="{{ download_url }}/test.txt">Download test.txt</a>
+```
 
-Now with this plugin installed, you can force a download:
-
-    http://localhost:8888/Pico/download/sub/page.md
-
-### More info
-
-I have added quite a few comments in the plugin so just take a look. It's nothing new, just bringing different snippets together.
+The download URL would than be: `http://example.com/download/test.txt`.
 
 ### License
 
