@@ -38,7 +38,7 @@ class Pico_Download {
         if(strpos($url, $this->download_url) !== false) {
             $this->download = true;
             // lets get the system path
-            $this->path = dirname(dirname(__DIR__)).'/'.str_replace($this->download_url.'/', $this->download_folder, $url);
+            $this->path = dirname(__DIR__).'/'.str_replace($this->download_url.'/', $this->download_folder, $url);
         } else {
             $this->download = false;
         }
